@@ -43,9 +43,15 @@ endchoice
 
 choice
 	prompt "TQMa57xx base board variant"
-	default MBA57XX
+	default SQP
 	help
 		Select base board for TQMa57xx
+
+config SQP
+	bool "TQMa57xx on SQP"
+	help
+		Select the SQP BaseBoard. This features GigE Phy, USB,
+		SD-Card	etc.
 
 config MBA57XX
 	bool "TQMa57xx on MBa57xx Starterkit"
