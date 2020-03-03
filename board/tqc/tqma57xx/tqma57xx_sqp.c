@@ -33,7 +33,7 @@ const struct pad_conf_entry core_padconf_array_bb_tqma57xx[] = {
 	/* SQP ah6 - eCap1; ae8 - gpio3_4 in; ad8 - gpio3_5 out; */
 	{VIN1A_D0, (M14 | PIN_INPUT)},	/* vin1a_d0.gpio3_4 */
 	{VIN1A_D1, (M14 | PIN_OUTPUT)},	/* vin1a_d1.gpio3_5 */
-	{VIN1A_D3, (M10 | PIN_INPUT)},	/* vin1a_d3.eCap1 */
+	{VIN1A_D3, (M10 | PIN_INPUT_PULLUP)},	/* vin1a_d3.eCap1 */
 	/* UART */
 	{VIN2A_D2, (M8 | PIN_INPUT)},	/* vin2a_d2.uart10_rxd */
 	{VIN2A_D3, (M8 | PIN_OUTPUT)},	/* vin2a_d3.uart10_txd */
