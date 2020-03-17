@@ -30,11 +30,13 @@
 #define WAKEUP_ENA	(1 << 24)
 
 const struct pad_conf_entry core_padconf_array_bb_tqma57xx[] = {
-	/* SQP ah6 - eCap1; ae8 - gpio3_4 in; ad8 - gpio3_5 out; */
-	{VIN1A_D0, (M14 | PIN_INPUT)},	/* vin1a_d0.gpio3_4 */
-	{VIN1A_D1, (M14 | PIN_OUTPUT)},	/* vin1a_d1.gpio3_5 */
-	{VIN1A_D3, (M10 | PIN_INPUT_PULLUP)},	/* vin1a_d3.eCap1 */
+    /* swissQprint */
+    {VOUT1_D6, (M10 | PIN_INPUT_PULLUP)},      /* vout1_d6.pr2_edc_latch1_in f8 */
+
 	/* UART */
+	{VIN1A_D0, (M5 | PIN_INPUT)},	/* vin1a_d0.uart8_rxd */
+	{VIN1A_D1, (M5 | PIN_OUTPUT)},	/* vin1a_d1.uart8_txd */
+	{VIN1A_D3, (M5 | PIN_OUTPUT)},	/* vin1a_d3.uart8_rtsn */
 	{VIN2A_D2, (M8 | PIN_INPUT)},	/* vin2a_d2.uart10_rxd */
 	{VIN2A_D3, (M8 | PIN_OUTPUT)},	/* vin2a_d3.uart10_txd */
 	{VIN2A_D5, (M8 | PIN_OUTPUT)},	/* vin2a_d5.uart10_rtsn */
@@ -173,35 +175,35 @@ const struct pad_conf_entry core_padconf_array_bb_tqma57xx[] = {
 	{UART1_RTSN, (M3 | PIN_INPUT_PULLUP | MANUAL_MODE)},        /* uart1_rtsn.mmc4_cmd */
 
 	/* video out */
-	{VOUT1_CLK, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_clk.vout1_clk */
-	{VOUT1_DE, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_de.vout1_de */
-	{VOUT1_FLD, (M14 | PIN_OUTPUT)},        /* vout1_fld.gpio4_21 */
-	{VOUT1_HSYNC, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},   /* vout1_hsync.vout1_hsync */
-	{VOUT1_VSYNC, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},   /* vout1_vsync.vout1_vsync */
-	{VOUT1_D0, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d0.vout1_d0 */
-	{VOUT1_D1, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d1.vout1_d1 */
-	{VOUT1_D2, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d2.vout1_d2 */
-	{VOUT1_D3, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d3.vout1_d3 */
-	{VOUT1_D4, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d4.vout1_d4 */
-	{VOUT1_D5, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d5.vout1_d5 */
-	{VOUT1_D6, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d6.vout1_d6 */
-	{VOUT1_D7, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d7.vout1_d7 */
-	{VOUT1_D8, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d8.vout1_d8 */
-	{VOUT1_D9, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d9.vout1_d9 */
-	{VOUT1_D10, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d10.vout1_d10 */
-	{VOUT1_D11, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d11.vout1_d11 */
-	{VOUT1_D12, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d12.vout1_d12 */
-	{VOUT1_D13, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d13.vout1_d13 */
-	{VOUT1_D14, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d14.vout1_d14 */
-	{VOUT1_D15, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d15.vout1_d15 */
-	{VOUT1_D16, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d16.vout1_d16 */
-	{VOUT1_D17, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d17.vout1_d17 */
-	{VOUT1_D18, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d18.vout1_d18 */
-	{VOUT1_D19, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d19.vout1_d19 */
-	{VOUT1_D20, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d20.vout1_d20 */
-	{VOUT1_D21, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d21.vout1_d21 */
-	{VOUT1_D22, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d22.vout1_d22 */
-	{VOUT1_D23, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d23.vout1_d23 */
+//	{VOUT1_CLK, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_clk.vout1_clk */
+//	{VOUT1_DE, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_de.vout1_de */
+//	{VOUT1_FLD, (M14 | PIN_OUTPUT)},        /* vout1_fld.gpio4_21 */
+//	{VOUT1_HSYNC, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},   /* vout1_hsync.vout1_hsync */
+//	{VOUT1_VSYNC, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},   /* vout1_vsync.vout1_vsync */
+//	{VOUT1_D0, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d0.vout1_d0 */
+//	{VOUT1_D1, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d1.vout1_d1 */
+//	{VOUT1_D2, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d2.vout1_d2 */
+//	{VOUT1_D3, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d3.vout1_d3 */
+//	{VOUT1_D4, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d4.vout1_d4 */
+//	{VOUT1_D5, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d5.vout1_d5 */
+//	{VOUT1_D6, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d6.vout1_d6 */
+//	{VOUT1_D7, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d7.vout1_d7 */
+//	{VOUT1_D8, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d8.vout1_d8 */
+//	{VOUT1_D9, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_d9.vout1_d9 */
+//	{VOUT1_D10, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d10.vout1_d10 */
+//	{VOUT1_D11, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d11.vout1_d11 */
+//	{VOUT1_D12, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d12.vout1_d12 */
+//	{VOUT1_D13, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d13.vout1_d13 */
+//	{VOUT1_D14, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d14.vout1_d14 */
+//	{VOUT1_D15, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d15.vout1_d15 */
+//	{VOUT1_D16, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d16.vout1_d16 */
+//	{VOUT1_D17, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d17.vout1_d17 */
+//	{VOUT1_D18, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d18.vout1_d18 */
+//	{VOUT1_D19, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d19.vout1_d19 */
+//	{VOUT1_D20, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d20.vout1_d20 */
+//	{VOUT1_D21, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d21.vout1_d21 */
+//	{VOUT1_D22, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d22.vout1_d22 */
+//	{VOUT1_D23, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_d23.vout1_d23 */
 
 	/* div */
 	{NMIN_DSP, (M0 | PIN_INPUT)},   /* nmin_dsp.nmin_dsp */
