@@ -30,6 +30,11 @@ config MBa57xx_SQP
 	help
 		Select the MBa57xx BaseBoard. Configured for the EtherCAT application.
 
+config CB2P_SQP
+	bool "TQMa57xx on CB2+ SQP"
+	help
+		Select the CB2+ BaseBoard. Configured for the EtherCAT application.
+
 config MBA57XX
 	bool "TQMa57xx on MBa57xx Starterkit"
 	help

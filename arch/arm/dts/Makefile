@@ -283,7 +283,9 @@ dtb-$(CONFIG_TARGET_AM57XX_EVM) += am57xx-beagle-x15.dtb \
 	am574x-idk.dtb \
 	am572x-idk.dtb	\
 	am571x-idk.dtb
-dtb-$(CONFIG_TARGET_TQMA57XX) += am57xx-mba57xx.dtb
+dtb-$(CONFIG_MBA57XX) += am57xx-mba57xx.dtb
+dtb-$(CONFIG_MBa57xx_SQP) += am57xx-mba57xx.dtb
+dtb-$(CONFIG_CB2P_SQP) += am57xx-cb2p.dtb
 dtb-$(CONFIG_TARGET_STV0991) += stv0991.dtb
 
 dtb-$(CONFIG_ARCH_LS1021A) += ls1021a-qds-duart.dtb \
