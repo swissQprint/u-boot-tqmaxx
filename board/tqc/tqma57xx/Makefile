@@ -9,4 +9,4 @@
 obj-y  := tqma57xx.o
 
 obj-$(CONFIG_MBA57XX) += tqma57xx_mba57xx.o
-obj-$(CONFIG_SQP) += tqma57xx_sqp.o
+obj-$(CONFIG_MBa57xx_SQP) += tqma57xx_mba57xx_sqp.o

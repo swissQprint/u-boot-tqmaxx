@@ -21,15 +21,14 @@ config TQMA57XX_ECC
 
 choice
 	prompt "TQMa57xx base board variant"
-	default SQP
+	default MBa57xx_SQP
 	help
 		Select base board for TQMa57xx
 
-config SQP
-	bool "TQMa57xx on SQP"
+config MBa57xx_SQP
+	bool "TQMa57xx on MBa57xx Starterkit SQP"
 	help
-		Select the SQP BaseBoard. This features GigE Phy, USB,
-		SD-Card	etc.
+		Select the MBa57xx BaseBoard. Configured for the EtherCAT application.
 
 config MBA57XX
 	bool "TQMa57xx on MBa57xx Starterkit"
