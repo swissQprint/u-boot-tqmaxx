@@ -94,12 +94,6 @@
 };
 
 /* Debug UART */
-&uart3 {
-	status = "okay";
-	interrupts-extended = <&crossbar_mpu GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH
-			       &dra7_pmx_core 0x3c0>;
-	wakeup-source;
-};
 &uart4 {
 	status = "okay";
 	interrupts-extended = <&crossbar_mpu GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH

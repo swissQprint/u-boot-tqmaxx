@@ -402,7 +402,7 @@ const struct iodelay_cfg_entry iodelay_cfg_array_bb_tqma57xx[] = {
 
 const char *tqma57xx_bb_get_boardname(void)
 {
-	return "CB2p-SQP";
+	return "CB2+";
 }
 
 #ifdef CONFIG_IODELAY_RECALIBRATION

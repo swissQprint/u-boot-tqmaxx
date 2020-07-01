@@ -70,10 +70,8 @@ const struct pad_conf_entry early_padconf[] = {
 	{I2C1_SDA, (M0 | PIN_INPUT)},	/* i2c1_sda.i2c1_sda */
 	{I2C1_SCL, (M0 | PIN_INPUT)},	/* i2c1_scl.i2c1_scl */
 	/* swissQprint */
-//	{SPI2_SCLK, (M1 | PIN_INPUT)},	/* spi2_sclk.uart3_rxd */
-//	{SPI2_D1, (M1 | PIN_OUTPUT | SLEWCONTROL)},	/* spi2_d1.uart3_txd */
-    {MCASP4_AXR0, (M4 | PIN_INPUT)},        /* mcasp4_axr0.uart4_rxd */
-    {MCASP4_AXR1, (M4 | PIN_OUTPUT)},       /* mcasp4_axr1.uart4_txd */
+	{MCASP4_AXR0, (M4 | PIN_INPUT)},        /* mcasp4_axr0.uart4_rxd */
+	{MCASP4_AXR1, (M4 | PIN_OUTPUT)},       /* mcasp4_axr1.uart4_txd */
 };
 
 /*

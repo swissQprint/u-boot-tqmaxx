@@ -27,7 +27,11 @@
 #define CONFIG_SYS_OMAP_ABE_SYSCK
 
 /* console */
-#define CONSOLEDEV			"ttyO3"
+#ifdef CONFIG_CB2P_SQP
+#define CONSOLEDEV          "tty03"
+#else
+#define CONSOLEDEV			"ttyO2"
+#endif
 #define CONFIG_SYS_NS16550_COM1                UART1_BASE      /* UART0 */
 #define CONFIG_SYS_NS16550_COM2                UART2_BASE      /* UART2 */
 #define CONFIG_SYS_NS16550_COM3                UART3_BASE      /* UART3 */
