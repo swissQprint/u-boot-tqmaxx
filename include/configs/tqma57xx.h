@@ -27,10 +27,11 @@
 #define CONFIG_SYS_OMAP_ABE_SYSCK
 
 /* console */
-#define CONSOLEDEV			"ttyO2"
+#define CONSOLEDEV			"ttyO3"
 #define CONFIG_SYS_NS16550_COM1                UART1_BASE      /* UART0 */
 #define CONFIG_SYS_NS16550_COM2                UART2_BASE      /* UART2 */
 #define CONFIG_SYS_NS16550_COM3                UART3_BASE      /* UART3 */
+#define CONFIG_SYS_NS16550_COM4                UART4_BASE      /* UART4 */
 
 /* Use General purpose timer 1 */
 #define CONFIG_SYS_TIMERBASE            GPT2_BASE

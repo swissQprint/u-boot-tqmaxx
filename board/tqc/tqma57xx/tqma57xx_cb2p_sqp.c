@@ -40,9 +40,7 @@ const struct pad_conf_entry core_padconf_array_bb_tqma57xx[] = {
 	{VIN2A_D2, (M8 | PIN_INPUT)},	/* vin2a_d2.uart10_rxd */
 	{VIN2A_D3, (M8 | PIN_OUTPUT)},	/* vin2a_d3.uart10_txd */
 	{VIN2A_D5, (M8 | PIN_OUTPUT)},	/* vin2a_d5.uart10_rtsn */
-	{MCASP4_AXR0, (M4 | PIN_INPUT)},        /* mcasp4_axr0.uart4_rxd */
-	{MCASP4_AXR1, (M4 | PIN_OUTPUT)},	/* mcasp4_axr0.uart4_txd */
-	/* UART3: see earlypadconf */
+	/* UART4: see earlypadconf */
 
 	/* GMAC MDIO */
 	{VIN2A_D10, (M3 | PIN_OUTPUT_PULLUP | SLEWCONTROL)},	/* vin2a_d10.mdio_mclk */
@@ -174,6 +172,7 @@ const struct pad_conf_entry core_padconf_array_bb_tqma57xx[] = {
 	{UART1_CTSN, (M3 | PIN_INPUT_PULLUP | MANUAL_MODE)},        /* uart1_ctsn.mmc4_clk */
 	{UART1_RTSN, (M3 | PIN_INPUT_PULLUP | MANUAL_MODE)},        /* uart1_rtsn.mmc4_cmd */
 
+    /* swissQprint */
 	/* video out */
 //	{VOUT1_CLK, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},     /* vout1_clk.vout1_clk */
 //	{VOUT1_DE, (M0 | PIN_OUTPUT | SLEWCONTROL | MANUAL_MODE)},      /* vout1_de.vout1_de */
@@ -297,6 +296,9 @@ const struct pad_conf_entry core_padconf_array_bb_tqma57xx[] = {
 	{MDIO_D, (M14 | PIN_INPUT_SLEW)},       /* mdio_d.gpio5_16 */
 	{UART3_RXD, (M14 | PIN_INPUT_SLEW)},    /* uart3_rxd.gpio5_18 */
 	{UART3_TXD, (M14 | PIN_INPUT_SLEW)},    /* uart3_txd.gpio5_19 */
+	/* swissQprint */
+    	{MCASP4_AXR0, (M4 | PIN_INPUT)},        /* mcasp4_axr0.uart4_rxd */
+    	{MCASP4_AXR1, (M4 | PIN_OUTPUT)},       /* mcasp4_axr1.uart4_txd */
 
 	/* PRU GPIO */
 	{VIN1A_D4, (M12 | PIN_INPUT_SLEW)}, /* vin1a_d2.pr1_pru0_gpi1 */

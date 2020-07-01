@@ -38,7 +38,7 @@
 #include <ti-usb-phy-uboot.h>
 #include <mmc.h>
 
-#include "mux_data.h"
+#include "mux_data_sqp.h"
 #include "ddr.h"
 #include "tqma57xx_bb.h"
 #include "../common/tqc_eeprom.h"

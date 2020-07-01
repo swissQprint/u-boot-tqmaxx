@@ -9,6 +9,7 @@ CONFIG_TQMA57XX=y
 # CONFIG_MBA57XX is not set
 # CONFIG_MBa57xx_SQP is not set
 CONFIG_CB2P_SQP=y
+CONFIG_CONS_INDEX=4
 CONFIG_SPL=y
 CONFIG_SPL_SPI_FLASH_SUPPORT=y
 CONFIG_SPL_SPI_SUPPORT=y
@@ -17,7 +18,7 @@ CONFIG_SMBIOS_PRODUCT_NAME="am57xx"
 CONFIG_NR_DRAM_BANKS=2
 CONFIG_OF_BOARD_SETUP=y
 CONFIG_USE_BOOTARGS=y
-CONFIG_BOOTARGS="androidboot.serialno=${serial#} console=ttyS2,115200 androidboot.console=ttyS2 androidboot.hardware=am57xevmboard"
+CONFIG_BOOTARGS="androidboot.serialno=${serial#} console=ttyS3,115200 androidboot.console=ttyS3 androidboot.hardware=am57xevmboard"
 CONFIG_SYS_CONSOLE_INFO_QUIET=y
 # CONFIG_MISC_INIT_R is not set
 CONFIG_VERSION_VARIABLE=y
