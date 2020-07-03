@@ -25,14 +25,14 @@
  */
 const struct pad_conf_entry core_padconf_array_essential_tqma57xx[] = {
 	/* QSPI */
-	{GPMC_A13, (M1 | PIN_INPUT | MANUAL_MODE)},	/* gpmc_a13.qspi1_rtclk */
-	{GPMC_A14, (M1 | PIN_INPUT | MANUAL_MODE)},	/* gpmc_a14.qspi1_d3 */
-	{GPMC_A15, (M1 | PIN_INPUT | MANUAL_MODE)},	/* gpmc_a15.qspi1_d2 */
-	{GPMC_A16, (M1 | PIN_INPUT | MANUAL_MODE)},	/* gpmc_a16.qspi1_d0 */
-	{GPMC_A17, (M1 | PIN_INPUT | MANUAL_MODE)},	/* gpmc_a17.qspi1_d1 */
-	{GPMC_A18, (M1 | PIN_OUTPUT | MANUAL_MODE)},	/* gpmc_a18.qspi1_sclk */
-	{GPMC_CS2, (M1 | PIN_OUTPUT | MANUAL_MODE)},	/* gpmc_cs2.qspi1_cs0 */
-	{GPMC_CS3, (M1 | PIN_OUTPUT | MANUAL_MODE)},    /* gpmc_cs3.qspi1_cs1 */
+	{GPMC_A13, (M1 | PIN_INPUT | MANUAL_MODE)},            /* gpmc_a13.qspi1_rtclk */
+	{GPMC_A14, (M1 | PIN_INPUT | MANUAL_MODE)},            /* gpmc_a14.qspi1_d3 */
+	{GPMC_A15, (M1 | PIN_INPUT | MANUAL_MODE)},            /* gpmc_a15.qspi1_d2 */
+	{GPMC_A16, (M1 | PIN_INPUT | MANUAL_MODE)},            /* gpmc_a16.qspi1_d0 */
+	{GPMC_A17, (M1 | PIN_INPUT | MANUAL_MODE)},            /* gpmc_a17.qspi1_d1 */
+	{GPMC_A18, (M1 | PIN_OUTPUT | MANUAL_MODE)},           /* gpmc_a18.qspi1_sclk */
+	{GPMC_CS2, (M1 | PIN_OUTPUT | MANUAL_MODE)},           /* gpmc_cs2.qspi1_cs0 */
+	{GPMC_CS3, (M1 | PIN_OUTPUT | MANUAL_MODE)},           /* gpmc_cs3.qspi1_cs1 */
 
 	/* MMC2: eMMC */
 	{GPMC_A19, (M1 | PIN_INPUT_PULLUP | MANUAL_MODE)},    /* gpmc_a19.mmc2_dat4 */

@@ -110,14 +110,16 @@
 	phy_id = <&davinci_mdio>, <2>;
 	phy-mode = "rgmii-id";
 	dual_emac_res_vlan = <1>;
-	reset-gpio = <&expander2 10 GPIO_ACTIVE_LOW>;
+    reset-gpio = <&gpio3 22 GPIO_ACTIVE_LOW>;
+    reset-delay-us = <2>;   /* PHY datasheet states 1uS min */
 };
 
 &cpsw_emac1 {
 	phy_id = <&davinci_mdio>, <3>;
 	phy-mode = "rgmii-id";
 	dual_emac_res_vlan = <2>;
-	reset-gpio = <&expander2 11 GPIO_ACTIVE_LOW>;
+    reset-gpio = <&gpio3 23 GPIO_ACTIVE_LOW>;
+    reset-delay-us = <2>;   /* PHY datasheet states 1uS min */
 };
 
 &davinci_mdio {
