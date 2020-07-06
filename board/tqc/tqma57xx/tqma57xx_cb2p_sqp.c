@@ -56,6 +56,9 @@ const struct pad_conf_entry core_padconf_array_bb_tqma57xx[] = {
 
         /* CB2+ Detection */
         {VIN1A_D2,     (M14 | PIN_INPUT)},                          /* vin1a_d2.gpio3_6                 AG7  X4-099    LinkDetect     */
+        
+        /* Interface_nOE */
+        {VIN1A_D20,    (M14 | PIN_OUTPUT)},                         /* vin1a_d20.gpio3_24               AE2  X4-088    Interface_nOE  */
 
         /* HW-Version */
         {MCASP1_AXR4,  (M14 | PIN_INPUT_PULLUP)},                   /* mcasp1_axr4.gpio5_6              E12  X1-061    HW_Version0    */
@@ -107,10 +110,10 @@ const struct pad_conf_entry core_padconf_array_bb_tqma57xx[] = {
         {VIN1A_D19,    (M14 | PIN_OUTPUT)},                         /* vin1a_d19.gpio3_23               AE1  X4-086    RGMII1_RST#    */
         
         /* Test */
-        {VIN1A_D10,    (M14 | PIN_INPUT_PULLUP)},                   /* vin1a_d10.gpio3_14               AG3  X4-102   Test_IO0        */
-        {VIN1A_D11,    (M14 | PIN_INPUT_PULLUP)},                   /* vin1a_d11.gpio3_15               AG5  X4-104   Test_IO1        */
-        {VIN1A_D12,    (M14 | PIN_INPUT_PULLUP)},                   /* vin1a_d12.gpio3_16               AF2  X4-106   Test_IO2        */
-        {GPMC_WAIT0,   (M14 | PIN_INPUT_PULLUP)},                   /* gpmc_wait0.gpio2_28              N2   X4-108   Test_IO3        */
+        {VIN1A_D10,    (M14 | PIN_INPUT_PULLUP)},                   /* vin1a_d10.gpio3_14               AG3  X4-102    Test_IO0        */
+        {VIN1A_D11,    (M14 | PIN_INPUT_PULLUP)},                   /* vin1a_d11.gpio3_15               AG5  X4-104    Test_IO1        */
+        {VIN1A_D12,    (M14 | PIN_INPUT_PULLUP)},                   /* vin1a_d12.gpio3_16               AF2  X4-106    Test_IO2        */
+        {GPMC_WAIT0,   (M14 | PIN_INPUT_PULLUP)},                   /* gpmc_wait0.gpio2_28              N2   X4-108    Test_IO3        */
         
     /* END: swissQprint CB2+ */ 
     
@@ -284,7 +287,6 @@ const struct pad_conf_entry core_padconf_array_bb_tqma57xx[] = {
 	/* GPIO */
 //	{VIN1A_D14, (M14 | PIN_INPUT)}, /* vin1a_d14.gpio3_18 */
 //	{VIN1A_D15, (M14 | PIN_INPUT)}, /* vin1a_d15.gpio3_19 */
-//	{VIN1A_D20, (M14 | PIN_INPUT)}, /* vin1a_d20.gpio3_24 */
 //	{VIN1A_D21, (M14 | PIN_INPUT)}, /* vin1a_d21.gpio3_25 */
 //	{VIN1A_D22, (M14 | PIN_INPUT)}, /* vin1a_d22.gpio3_26 */
 //	{VIN1A_D23, (M14 | PIN_INPUT)}, /* vin1a_d23.gpio3_27 */
@@ -652,8 +654,14 @@ int tqma57xx_bb_board_eth_init(bd_t *bis)
 }
 #endif /* CONFIG_DRIVER_TI_CPSW */
 
+#define CB2p_AM57XX_GPIO_nInterfaceOE GPIO_TO_PIN(3, 24)
+
 void tqma57xx_bb_board_late_init(void)
 {
+    gpio_request( CB2p_AM57XX_GPIO_nInterfaceOE, "nInterfaceOE" );
+    gpio_direction_output( CB2p_AM57XX_GPIO_nInterfaceOE, 0 );
+    mdelay(20);
+
 	if (!env_get("fdtfile")) {
 		switch(omap_revision()) {
 		case DRA752_ES2_0:
