@@ -658,9 +658,9 @@ int tqma57xx_bb_board_eth_init(bd_t *bis)
 
 void tqma57xx_bb_board_late_init(void)
 {
-    gpio_request( CB2p_AM57XX_GPIO_nInterfaceOE, "nInterfaceOE" );
-    gpio_direction_output( CB2p_AM57XX_GPIO_nInterfaceOE, 0 );
-    mdelay(20);
+//    gpio_request( CB2p_AM57XX_GPIO_nInterfaceOE, "nInterfaceOE" );
+//    gpio_direction_output( CB2p_AM57XX_GPIO_nInterfaceOE, 0 );
+//    mdelay(20);
 
 	if (!env_get("fdtfile")) {
 		switch(omap_revision()) {
