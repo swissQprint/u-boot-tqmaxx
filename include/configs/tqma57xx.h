@@ -28,7 +28,7 @@
 
 /* console */
 #ifdef CONFIG_CB2P_SQP
-#define CONSOLEDEV          "tty03"
+#define CONSOLEDEV          "ttyS3"
 #else
 #define CONSOLEDEV			"ttyO2"
 #endif
