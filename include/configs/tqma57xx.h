@@ -232,7 +232,7 @@
 	"vram=16M\0" \
 	AVB_VERIFY_CMD \
 	"partitions=" PARTS_DEFAULT "\0" \
-	"optargs=\0" \
+	"optargs=nohlt\0" \
 	"dofastboot=0\0" \
 	"emmc_linux_boot=" \
 		"echo Trying to boot Linux from eMMC ...; " \
