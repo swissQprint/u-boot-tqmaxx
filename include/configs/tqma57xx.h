@@ -237,8 +237,8 @@
 	"emmc_linux_boot=" \
 		"echo Trying to boot Linux from eMMC ...; " \
 		"setenv mmcdev 1; " \
-		"setenv bootpart 1:2; " \
-		"setenv mmcroot /dev/mmcblk1p2 rw; " \
+		"setenv bootpart 1:1; " \
+		"setenv mmcroot /dev/mmcblk1p3 rw; " \
 		"run mmcboot;\0" \
 
 #define CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG
@@ -299,7 +299,7 @@
 	"finduuid=setenv bootpart ${mmcdev}:1; part uuid mmc ${bootpart} uuid\0" \
 	"args_mmc=setenv bootargs console=${console} " \
 		"${optargs} " \
-		"root=/dev/mmcblk${mmcblkdev}p2 rw " \
+		"root=/dev/mmcblk${mmcblkdev}p3 rw " \
 		"rootfstype=${mmcrootfstype}\0" \
 	"loadbootscript=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} boot.scr\0" \
 	"bootscript=echo Running bootscript from mmc${mmcdev} ...; " \
