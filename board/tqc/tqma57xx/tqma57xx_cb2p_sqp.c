@@ -472,7 +472,17 @@ int tqma57xx_bb_recalibrate_iodelay(void)
 int tqma57xx_bb_board_mmc_init(bd_t *bis)
 {
 	/* MMC1: sd card */
-	omap_mmc_init(0, 0, 0, -1, -1);
+	int ret0 = omap_mmc_init(0, 0, 0, -1, -1);
+	if (ret0)
+		printf("tqma57xx: failed to initialize mmc0\n");
+	/* MMC2: eMMC */
+	int ret1 = omap_mmc_init(1, 0, 0, -1, -1);
+	if (ret1)
+		printf("tqma57xx: failed to initialize mmc1\n");
+		
+	if (ret0 && ret1)
+		return -1;
+
 	return 0;
 }
 #endif /* CONFIG_MMC */
