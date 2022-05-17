@@ -514,6 +514,8 @@ void do_board_detect(void)
 	char *bname = NULL;
 	int rc;
 
+	printf("entry do_board_detect:\n");
+
 	rc = ti_i2c_eeprom_am_get(CONFIG_EEPROM_BUS_ADDRESS,
 				  CONFIG_EEPROM_CHIP_ADDRESS);
 	if (rc)
