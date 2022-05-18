@@ -18,7 +18,7 @@ CONFIG_SD_BOOT=y
 CONFIG_SPI_BOOT=y
 CONFIG_USE_BOOTARGS=y
 CONFIG_BOOTARGS="androidboot.serialno=${serial#} console=ttyS3,115200 androidboot.console=ttyS3 androidboot.hardware=am57xevmboard"
-CONFIG_LOGLEVEL=6
+CONFIG_LOGLEVEL=8
 CONFIG_SYS_CONSOLE_INFO_QUIET=y
 # CONFIG_MISC_INIT_R is not set
 CONFIG_VERSION_VARIABLE=y
