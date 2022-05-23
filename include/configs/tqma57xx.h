@@ -196,6 +196,7 @@
 #define CONFIG_ENV_OFFSET_REDUND        (CONFIG_ENV_OFFSET + \
 					 CONFIG_ENV_SECT_SIZE)
 #define CONFIG_SYS_MMC_ENV_DEV		1
+#define CONFIG_SYS_MMC_ENV_PART		1
 
 /* Default environment */
 #include <environment/ti/boot.h>
