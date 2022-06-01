@@ -308,7 +308,7 @@
 		"source ${loadaddr}\0" \
 	"bootenvfile=uEnv.txt\0" \
 	"altbootcmd=" \
-	"  echo Rollback to previous rootFs; "
+	"  echo Rollback to previous rootFs; " \
 	"  if test ${rootfspart} = 3; " \
 	"    then setenv rootfspart 4; " \
 	"  else " \
