@@ -298,14 +298,23 @@
 	"boot_fit=0\0" \
 	"mmcrootfstype=ext4 rootwait\0" \
 	"finduuid=setenv bootpart ${mmcdev}:1; part uuid mmc ${bootpart} uuid\0" \
+	"rootfspart=3\0" \
 	"args_mmc=setenv bootargs console=${console} " \
 		"${optargs} " \
-		"root=/dev/mmcblk${mmcblkdev}p3 rw " \
+		"root=/dev/mmcblk${mmcblkdev}p${rootfspart} rw " \
 		"rootfstype=${mmcrootfstype}\0" \
 	"loadbootscript=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} boot.scr\0" \
 	"bootscript=echo Running bootscript from mmc${mmcdev} ...; " \
 		"source ${loadaddr}\0" \
 	"bootenvfile=uEnv.txt\0" \
+	"altbootcmd=" \
+	"  echo Rollback to previous rootFs; "
+	"  if test ${rootfspart} = 3; " \
+	"    then setenv rootfspart 4; " \
+	"  else " \
+	"     setenv rootfspart 3; " \
+	"  fi; setenv bootcount 0; saveenv; " \
+	"  bootcmd\0" \
 	"importbootenv=echo Importing environment from mmc${mmcdev} ...; " \
 		"env import -t ${loadaddr} ${filesize}\0" \
 	"loadbootenv=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} ${bootenvfile}\0" \
