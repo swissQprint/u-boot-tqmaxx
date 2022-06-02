@@ -228,7 +228,8 @@
 
 #define COMMON_BOOT_ARGS \
 	"console=" CONSOLEDEV ",115200n8\0" \
-	"bootpart=${mmcdev}:1\0" \
+	"bootpart=${mmcdev}:${bootpartnum}\0" \
+	"bootpartnum=1\0" \
 	"usbtty=cdc_acm\0" \
 	"vram=16M\0" \
 	AVB_VERIFY_CMD \
@@ -270,7 +271,7 @@
 		"if itest ${blkc} <= ${uboot_size}; then " \
 			"mmc write ${loadaddr} " __stringify(CONFIG_SYS_MMCSD_RAW_MODE_U_BOOT_SECTOR) " ${blkc}; " \
 		"fi; fi; setenv filesize; setenv blkc; \0" \
-	"update_kernel=setenv bootpart ${mmcdev}:1; " \
+	"update_kernel=setenv bootpart ${mmcdev}:${bootpartnum}; " \
 		"if tftp ${bootfile}; then " \
 		"echo updating ${bootfile} on mmc${bootpart}...; " \
 		"mmc dev ${mmcdev}; mmc rescan; " \
@@ -310,16 +311,16 @@
 	"altbootcmd=" \
 	"  echo Rollback to previous rootFs; " \
 	"  if test ${rootfspart} = 3; " \
-	"    then setenv rootfspart 4; " \
+	"    then setenv rootfspart 4; setenv bootpartnum 2; " \
 	"  else " \
-	"     setenv rootfspart 3; " \
+	"     setenv rootfspart 3; setenv bootpartnum 1; " \
 	"  fi; setenv bootcount 0; saveenv; " \
 	"  bootcmd\0" \
 	"importbootenv=echo Importing environment from mmc${mmcdev} ...; " \
 		"env import -t ${loadaddr} ${filesize}\0" \
-	"loadbootenv=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} ${bootenvfile}\0" \
-	"loadimage=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} ${bootfile}\0" \
-	"loadfdt=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${fdtaddr} ${fdtfile}\0" \
+	"loadbootenv=setenv bootpart ${mmcdev}:${bootpartnum}; load ${devtype} ${bootpart} ${loadaddr} ${bootenvfile}\0" \
+	"loadimage=setenv bootpart ${mmcdev}:${bootpartnum}; load ${devtype} ${bootpart} ${loadaddr} ${bootfile}\0" \
+	"loadfdt=setenv bootpart ${mmcdev}:${bootpartnum}; load ${devtype} ${bootpart} ${fdtaddr} ${fdtfile}\0" \
 	"envboot=mmc dev ${mmcdev}; " \
 		"if mmc rescan; then " \
 			"echo SD/MMC found on device ${mmcdev};" \
