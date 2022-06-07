@@ -309,8 +309,6 @@ int spl_mmc_load_image(struct spl_image_info *spl_image,
 	int err = 0;
 	__maybe_unused int part;
 
-	printf("spl: spl_mmc_load_image\n");
-
 	err = spl_mmc_find_device(&mmc, bootdev->boot_device);
 	if (err)
 		return err;
