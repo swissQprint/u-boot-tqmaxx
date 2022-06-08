@@ -472,7 +472,7 @@ int tqma57xx_bb_recalibrate_iodelay(void)
 int tqma57xx_bb_board_mmc_init(bd_t *bis)
 {
 	/* MMC1: sd card */
-	int ret0 = omap_mmc_init(0, 0, 0, -1, -1);
+	omap_mmc_init(0, 0, 0, -1, -1);
 	return 0;
 }
 #endif /* CONFIG_MMC */
