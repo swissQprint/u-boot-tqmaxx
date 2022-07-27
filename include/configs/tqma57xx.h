@@ -196,6 +196,7 @@
 #define CONFIG_ENV_OFFSET_REDUND        (CONFIG_ENV_OFFSET + \
 					 CONFIG_ENV_SECT_SIZE)
 #define CONFIG_SYS_MMC_ENV_DEV		1
+#define CONFIG_SYS_MMC_ENV_PART		1
 
 /* Default environment */
 #include <environment/ti/boot.h>
@@ -227,7 +228,8 @@
 
 #define COMMON_BOOT_ARGS \
 	"console=" CONSOLEDEV ",115200n8\0" \
-	"bootpart=${mmcdev}:1\0" \
+	"bootpart=${mmcdev}:${bootpartnum}\0" \
+	"bootpartnum=1\0" \
 	"usbtty=cdc_acm\0" \
 	"vram=16M\0" \
 	AVB_VERIFY_CMD \
@@ -237,8 +239,8 @@
 	"emmc_linux_boot=" \
 		"echo Trying to boot Linux from eMMC ...; " \
 		"setenv mmcdev 1; " \
-		"setenv bootpart 1:2; " \
-		"setenv mmcroot /dev/mmcblk1p2 rw; " \
+		"setenv bootpart 1:1; " \
+		"setenv mmcroot /dev/mmcblk1p3 rw; " \
 		"run mmcboot;\0" \
 
 #define CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG
@@ -247,7 +249,7 @@
 	COMMON_BOOT_ARGS \
 	DEFAULT_FIT_TI_ARGS \
 	NETARGS_TQMA57XX \
-	"bootfile=linuximage\0" \
+	"bootfile=zImage\0" \
 	"devtype=mmc \0" \
 	"u-boot=u-boot.img\0" \
 	"uboot_size=0x800\0" \
@@ -269,7 +271,7 @@
 		"if itest ${blkc} <= ${uboot_size}; then " \
 			"mmc write ${loadaddr} " __stringify(CONFIG_SYS_MMCSD_RAW_MODE_U_BOOT_SECTOR) " ${blkc}; " \
 		"fi; fi; setenv filesize; setenv blkc; \0" \
-	"update_kernel=setenv bootpart ${mmcdev}:1; " \
+	"update_kernel=setenv bootpart ${mmcdev}:${bootpartnum}; " \
 		"if tftp ${bootfile}; then " \
 		"echo updating ${bootfile} on mmc${bootpart}...; " \
 		"mmc dev ${mmcdev}; mmc rescan; " \
@@ -297,19 +299,28 @@
 	"boot_fit=0\0" \
 	"mmcrootfstype=ext4 rootwait\0" \
 	"finduuid=setenv bootpart ${mmcdev}:1; part uuid mmc ${bootpart} uuid\0" \
+	"rootfspart=3\0" \
 	"args_mmc=setenv bootargs console=${console} " \
 		"${optargs} " \
-		"root=/dev/mmcblk${mmcblkdev}p2 rw " \
+		"root=/dev/mmcblk${mmcblkdev}p${rootfspart} rw " \
 		"rootfstype=${mmcrootfstype}\0" \
 	"loadbootscript=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} boot.scr\0" \
 	"bootscript=echo Running bootscript from mmc${mmcdev} ...; " \
 		"source ${loadaddr}\0" \
 	"bootenvfile=uEnv.txt\0" \
+	"altbootcmd=" \
+	"  echo Rollback to previous rootFs; " \
+	"  if test ${rootfspart} = 3; " \
+	"    then setenv rootfspart 4; setenv bootpartnum 2; " \
+	"  else " \
+	"     setenv rootfspart 3; setenv bootpartnum 1; " \
+	"  fi; setenv bootcount 0; saveenv; " \
+	"  bootcmd\0" \
 	"importbootenv=echo Importing environment from mmc${mmcdev} ...; " \
 		"env import -t ${loadaddr} ${filesize}\0" \
-	"loadbootenv=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} ${bootenvfile}\0" \
-	"loadimage=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} ${bootfile}\0" \
-	"loadfdt=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${fdtaddr} ${fdtfile}\0" \
+	"loadbootenv=setenv bootpart ${mmcdev}:${bootpartnum}; load ${devtype} ${bootpart} ${loadaddr} ${bootenvfile}\0" \
+	"loadimage=setenv bootpart ${mmcdev}:${bootpartnum}; load ${devtype} ${bootpart} ${loadaddr} ${bootfile}\0" \
+	"loadfdt=setenv bootpart ${mmcdev}:${bootpartnum}; load ${devtype} ${bootpart} ${fdtaddr} ${fdtfile}\0" \
 	"envboot=mmc dev ${mmcdev}; " \
 		"if mmc rescan; then " \
 			"echo SD/MMC found on device ${mmcdev};" \
