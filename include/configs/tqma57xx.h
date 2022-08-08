@@ -315,7 +315,7 @@
 	"  else " \
 	"     setenv rootfspart 3; setenv bootpartnum 1; " \
 	"  fi; setenv bootcount 0; saveenv; " \
-	"  run bootcmd\0" \
+	"  run bootcmd;\0" \
 	"importbootenv=echo Importing environment from mmc${mmcdev} ...; " \
 		"env import -t ${loadaddr} ${filesize}\0" \
 	"loadbootenv=setenv bootpart ${mmcdev}:${bootpartnum}; load ${devtype} ${bootpart} ${loadaddr} ${bootenvfile}\0" \
