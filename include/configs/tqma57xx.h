@@ -253,8 +253,10 @@
 	"devtype=mmc \0" \
 	"u-boot=u-boot.img\0" \
 	"uboot_size=0x800\0" \
+	"isolcpus=nohz,domain,managed_irq,0\0" \
 	"MLO=MLO\0" \
 	"mlo_size=0x100\0" \
+	"nohz_full=0\0" \
 	"update_uboot=if tftp ${MLO}; then " \
 		"echo updating MLO on mmc${mmcdev}...; " \
 		"mmc dev ${mmcdev}; mmc rescan; " \
