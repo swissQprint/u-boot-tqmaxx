@@ -304,8 +304,8 @@
 		"${optargs} " \
 		"root=/dev/mmcblk${mmcblkdev}p${rootfspart} rw " \
 		"rootfstype=${mmcrootfstype}\0" \
-		"isolcpus=nohz,domain,managed_irq,0\0" \
-		"nohz_full=0\0" \
+		"isolcpus=domain,1\0" \
+		"nohz_full=1\0" \
 	"loadbootscript=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} boot.scr\0" \
 	"bootscript=echo Running bootscript from mmc${mmcdev} ...; " \
 		"source ${loadaddr}\0" \
