@@ -307,6 +307,7 @@
 		"isolcpus=domain,1\0" \
 		"nohz_full=1\0" \
 		"panic=30\0" \
+	"env_version=0.2.0\0" \
 	"loadbootscript=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} boot.scr\0" \
 	"bootscript=echo Running bootscript from mmc${mmcdev} ...; " \
 		"source ${loadaddr}\0" \
@@ -317,7 +318,7 @@
 	"    then setenv rootfspart 4; setenv bootpartnum 2; " \
 	"  else " \
 	"     setenv rootfspart 3; setenv bootpartnum 1; " \
-	"  fi; setenv bootcount 0; saveenv; " \
+	"  fi; setenv fallback 1; setenv bootcount 0; saveenv; " \
 	"  run bootcmd;\0" \
 	"importbootenv=echo Importing environment from mmc${mmcdev} ...; " \
 		"env import -t ${loadaddr} ${filesize}\0" \
