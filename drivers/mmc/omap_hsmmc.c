@@ -1876,7 +1876,7 @@ static int omap_hsmmc_get_pinctrl_state(struct mmc *mmc)
 
 	default_pinctrl = omap_hsmmc_get_pinctrl_by_mode(mmc, "default");
 	if (!default_pinctrl) {
-		printf("no pinctrl state for default mode\n");
+		printf("no pinctrl state for default mode(Debug)\n");
 		return -EINVAL;
 	}
 
