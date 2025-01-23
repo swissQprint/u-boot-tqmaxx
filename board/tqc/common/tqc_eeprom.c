@@ -69,7 +69,7 @@ static int tqc_vard_is_crc_valid(struct tqc_eeprom_data *data, uint16_t *cp)
 		*cp = crc;
 
 	if (crc != data->crc) {
-		printf("TQC_VARD: CRC mismatch (%04x != %04x)\n",
+		printf("TQC_VARD: CRC mismatch DEBUG (%04x != %04x)\n",
 			data->crc, crc);
 		return 0;
 	}
