@@ -10,7 +10,7 @@
 
 #ifndef __CONFIG_AM57XX_EVM_H
 #define __CONFIG_AM57XX_EVM_H
-
+#define DEBUG
 #include <environment/ti/dfu.h>
 #include <linux/sizes.h>
 
