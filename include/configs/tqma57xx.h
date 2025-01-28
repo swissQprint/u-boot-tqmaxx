@@ -303,9 +303,9 @@
 	"args_mmc=setenv bootargs console=${console} " \
 		"${optargs} " \
 		"root=/dev/mmcblk${mmcblkdev}p${rootfspart} rw " \
-		"rootfstype=${mmcrootfstype}\0" \
-		"isolcpus=domain,1\0" \
-		"nohz_full=1\0" \
+		"rootfstype=${mmcrootfstype} " \
+		"isolcpus=domain,1 " \
+		"nohz_full=1 " \
 		"panic=30\0" \
 	"env_version=0.2.0\0" \
 	"loadbootscript=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} boot.scr\0" \
