@@ -306,6 +306,8 @@
 		"rootfstype=${mmcrootfstype} " \
 		"isolcpus=domain,1 " \
 		"nohz_full=1 " \
+		"bootdelay=3 " \
+		"autostopkey= " \
 		"panic=30\0" \
 	"env_version=0.2.0\0" \
 	"loadbootscript=setenv bootpart ${mmcdev}:1; load ${devtype} ${bootpart} ${loadaddr} boot.scr\0" \
