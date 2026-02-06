@@ -102,3 +102,12 @@ CONFIG_USB_HOST_ETHER=y
 CONFIG_USB_ETHER_ASIX=y
 CONFIG_USB_ETHER_ASIX88179=y
 CONFIG_SMBIOS_MANUFACTURER="ti"
+
+# Wait 2 seconds before executing bootcmd, allows user interruption 
+CONFIG_BOOTDELAY=2
+
+# Enable keyed autoboot: only specific key stops boot 
+CONFIG_AUTOBOOT_KEYED=y
+
+CONFIG_AUTOBOOT_PROMPT="Autobooting in %d seconds, press \space\ to stop\n"
+CONFIG_AUTOBOOT_STOP_STR=" "
